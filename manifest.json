@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Bloqueador de Empresas",
+  "description": "Esta extensión oculta ofertas de trabajo de empresas específicas en portales como LinkedIn, elempleo y Computrabajo.",
+  "version": "1.0",
+  "permissions": ["storage", "scripting", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*",
+        "*://*.computrabajo.com/*",
+        "*://www.elempleo.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon.png"
+  }
+}
